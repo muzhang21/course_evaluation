@@ -1,0 +1,44 @@
+<!--
+Name:  zhang106
+Assignment: a2 
+Date:  7/31/2021
+
+Description: an application to calculate grade
+Page: a form makes users enter their info
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Evaluation Calculator</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+		<div th:replace="fragments/header.html :: head1"></div>
+		<h1>Evaluation Calculator</h1>
+		<div th:replace="fragments/menu.html :: menu1"></div>
+		<form action="/courseResults" method="post" th:object="${course}">
+			<label for="code">Course Code:
+				<input type="text" name="code" id="code" th:field="*{code}">
+			</label><br>
+			
+			<label for="title">Course Title:
+				<input type="text" name="title" id="title" th:field="*{title}">
+			</label><br>
+			
+			
+				
+			<label for="credits">Course Credits:
+				<input type="text" name="credits" id="credits" th:field="*{credits}">	
+			</label><br>
+			
+			<label for="complete" >Complete Course:
+			<input type='radio' name="complete1" value="true" checked th:field="*{complete}">True
+			<input type='radio' name="complete2" value="false" th:field="*{complete}">False
+			</label><br>
+			
+			<input class="submit" type="submit">
+		</form>
+</body>
+</html>

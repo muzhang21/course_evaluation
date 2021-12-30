@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Course List</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+		<div th:replace="fragments/header.html :: head1"></div>
+		<div th:replace="fragments/menu.html :: menu1"></div>
+		<table>
+			<tr><th>Code</th><th>Title</th><th>Credits</th><th>Complete</th>
+			<tr th:each="c : ${session.courses}">
+				<td th:text="${c.code}"></td>
+				<td th:text="${c.title}"></td>
+				<td th:text="${c.credits}"></td>
+				<td th:text="${c.complete}"></td>
+				
+		</table>
+</body>
+</html>

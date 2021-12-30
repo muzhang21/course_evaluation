@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Course List</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+		<div th:replace="fragments/header.html :: head1"></div>
+		<div th:replace="fragments/menu.html :: menu1"></div>
+		<div th:if="${#maps.isEmpty(session.courseComplete)}" th:text="'No Course Completed'">
+	</div>
+	
+	<div th:unless="${#maps.isEmpty(session.courseComplete)}">
+		<table>
+			<tr><th>Course Code</th><th>Course Title</th><th>Grade</th></tr>
+			<tr th:each="i : ${session.courseComplete.entrySet()}">
+				<td th:text="${i.value.code}"></td>
+				<td th:text="${i.value.title}"></td>
+				<td th:text="${i.key.grade}"></td>
+			</tr>
+			<tr th:each="i : ${session.courseComplete.entrySet()}">
+				<td th:text="${#aggregates.sum(i.key.grade)}"></td>
+			</tr>
+				
+				
+		</table>
+	</div>
+		 
+</body>
+</html>

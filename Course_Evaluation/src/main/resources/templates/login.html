@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Log in to Calculate</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<h1>Log in to use Evaluation Tools</h1>
+	<div th:if="${param.error}" class="error">Invalid  user name or password</div>
+	<div th:if="${param.logout}">You have been logged out.</div>
+	
+	<form method="post" th:action="@{/login}">
+ 		 <p>
+    <label for="email">Email: 
+      <input type="email" name="username"></label>
+    <br>
+    <label for="pass">Password: 
+      <input type="password" name="password"></label>
+ 	 </p>
+  		<p><input type="submit" name="login" value="Log In"></p>
+	</form>
+
+</body>
+</html>

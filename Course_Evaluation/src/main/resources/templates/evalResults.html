@@ -1,0 +1,44 @@
+<!--
+Name:  zhang106
+Assignment: a1 
+Date:  6/16/2021
+
+Description: an application to calculate grade
+Page: displays the result
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Results</title>
+<script src="../static/js/scripts.js" th:src="@{/js/scripts.js}"></script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div th:replace="fragments/header.html :: head1"></div>
+	<h1>Evaluations</h1>
+		
+		<div th:replace="fragments/menu.html :: menu1"></div>
+		<div th:if="${#lists.isEmpty(session.eval)}" th:text="'No Evaluation Items'">
+		</div>
+		<div th:unless="${#lists.isEmpty(session.eval)}">
+		<table>
+			<tr><th>ID</th><th>Due Date</th><th>Course</th><th>Title</th><th>Grade</th>
+			<th>Weight</th><th></th></tr>
+			<tr th:each="e : ${session.eval}">
+				<td th:text="${e.id}"></td>
+				<td th:text="${e.dueDate}"></td>
+				<td><a href="#" th:text="${e.course}" th:id ="${e.course}" class="clink">code</a></td>
+				<td th:text="${e.title}"></td>
+				<td th:text="|${e.grade}/${e.max}|"></td>
+				<td th:text="${e.weight}"></td>
+				
+				<td><a href="#" th:href="|@{/edit/}${e.id}|">EDIT ITEM</a>
+		</table>
+		<div id="display"></div>
+		</div>
+	
+	
+</body>
+</html>

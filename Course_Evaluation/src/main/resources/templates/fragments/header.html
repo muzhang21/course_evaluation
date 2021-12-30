@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Fragments</title>
+</head>
+<body>
+	<header th:fragment="head1" sec:authorize="isAuthenticated()">
+		<h3>Logged in as <span sec:authentication="name"></span> | 
+		<a href="/logout" th:href="@{/logout}">Log Out</a></h3>
+	</header>
+</body>
+</html>

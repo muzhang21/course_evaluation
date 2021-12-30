@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Fragments</title>
+</head>
+<body>
+	<div th:fragment="menu1" >
+		<ul>
+		<li><a href="/">Home Page</a></li>
+		<li><a href="/evalcalc">Evaluation Calculator</a> </li>
+		<li><a href="/gpacalculate">GPA Calculator</a></li>
+		<li><a href="/addcourse">Add Course</a></li>
+	</ul>
+	</div>
+	
+	<div th:fragment="menu2">
+		<ul>
+		<li><a href="/evalcalc">Evaluation Calculator</a> </li>
+		<li><a href="/gpacalculate">GPA Calculator</a></li>
+		<li><a href="/addcourse">Add Course</a></li>
+		</ul>
+	</div>
+</body>
+</html>

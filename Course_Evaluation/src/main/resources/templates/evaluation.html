@@ -1,0 +1,53 @@
+<!--
+Name:  zhang106
+Assignment: a2 
+Date:  7/14/2021
+
+Description: an application to calculate grade
+Page: a form makes users enter their info
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Evaluation Calculator</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+		<div th:replace="fragments/header.html :: head1"></div>
+		<h1>Evaluation Calculator</h1>
+		<div th:replace="fragments/menu.html :: menu1"></div>
+		<form action="/eval" method="post" th:object="${evaluation}">
+			
+			<label for="title">Evaluation Title:
+				<input type="text" name="title" id="title" th:field="*{title}">	
+			</label><br>
+			
+			<label for="course">Select Course:
+				<select id="course" name="course" th:field="*{course}">
+					<option th:each="c : ${session.courses}" th:text="${c.title}"
+					th:value="${c.code}" ></option>
+					
+				</select>
+			</label><br>
+				
+			<label for="grade">Mark:
+				<input type="text" name="grade" id="grade" th:field="*{grade}">	
+			</label>
+			<label for="max">Out Of:
+				<input type="text" name="max" id="max" th:field="*{max}">
+			</label><br>
+			
+			<label for="weight">Weighting:
+				<input type="text" name="weight" id="weight" th:field="*{weight}">
+			</label><br>
+			
+			<label for="dueDate">Due Date:
+				<input type="date" name="dueDate" id="dueDate" th:field="*{dueDate}">
+			</label><br>
+			
+			<input class="submit" type="submit">
+		</form>
+</body>
+</html>
